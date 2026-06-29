@@ -1,539 +1,737 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Grounds & Co. — Specialty Coffee</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@400;500&display=swap" rel="stylesheet" />
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Grounds & Co. — Specialty Coffee</title>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@400;500&display=swap"
+            rel="stylesheet"
+        />
+        <style>
+            *,
+            *::before,
+            *::after {
+                box-sizing: border-box;
+                margin: 0;
+                padding: 0;
+            }
 
-    :root {
-      --espresso: #1C1009;
-      --roast:    #3B1F0A;
-      --caramel:  #C47C2B;
-      --cream:    #F5EDD8;
-      --milk:     #FBF7EE;
-      --text:     #1C1009;
-      --muted:    #7A5C3A;
-      --serif:    'Playfair Display', Georgia, serif;
-      --sans:     'Inter', system-ui, sans-serif;
-    }
+            :root {
+                --espresso: #00ff00;
+                --roast: #3b1f0a;
+                --caramel: #c47c2b;
+                --cream: #f5edd8;
+                --milk: #fbf7ee;
+                --text: #1c1009;
+                --muted: #7a5c3a;
+                --serif: "Playfair Display", Georgia, serif;
+                --sans: "Inter", system-ui, sans-serif;
+            }
 
-    html { scroll-behavior: smooth; }
+            html {
+                scroll-behavior: smooth;
+            }
 
-    body {
-      background: var(--milk);
-      color: var(--text);
-      font-family: var(--sans);
-      font-size: 16px;
-      line-height: 1.6;
-    }
+            body {
+                background: var(--milk);
+                color: var(--text);
+                font-family: var(--sans);
+                font-size: 16px;
+                line-height: 1.6;
+            }
 
-    /* Nav */
-    nav {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 20px 48px;
-      background: var(--espresso);
-      position: sticky;
-      top: 0;
-      z-index: 100;
-    }
+            /* Nav */
+            nav {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding: 20px 48px;
+                background: var(--espresso);
+                position: sticky;
+                top: 0;
+                z-index: 100;
+            }
 
-    .logo {
-      font-family: var(--serif);
-      font-size: 1.4rem;
-      color: var(--cream);
-      letter-spacing: 0.01em;
-    }
+            .logo {
+                font-family: var(--serif);
+                font-size: 1.4rem;
+                color: var(--cream);
+                letter-spacing: 0.01em;
+            }
 
-    .logo span { color: var(--caramel); }
+            .logo span {
+                color: var(--caramel);
+            }
 
-    .nav-links {
-      display: flex;
-      gap: 32px;
-      list-style: none;
-    }
+            .nav-links {
+                display: flex;
+                gap: 32px;
+                list-style: none;
+            }
 
-    .nav-links a {
-      text-decoration: none;
-      color: #C9B99A;
-      font-size: 0.875rem;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-      transition: color 0.2s;
-    }
+            .nav-links a {
+                text-decoration: none;
+                color: #c9b99a;
+                font-size: 0.875rem;
+                letter-spacing: 0.05em;
+                text-transform: uppercase;
+                transition: color 0.2s;
+            }
 
-    .nav-links a:hover { color: var(--cream); }
+            .nav-links a:hover {
+                color: var(--cream);
+            }
 
-    .nav-cta {
-      background: var(--caramel);
-      color: var(--espresso) !important;
-      padding: 8px 20px;
-      border-radius: 4px;
-      font-weight: 500 !important;
-    }
+            .nav-cta {
+                background: var(--caramel);
+                color: var(--espresso) !important;
+                padding: 8px 20px;
+                border-radius: 4px;
+                font-weight: 500 !important;
+            }
 
-    /* Hero */
-    .hero {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      min-height: 88vh;
-      align-items: center;
-    }
+            /* Hero */
+            .hero {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                min-height: 88vh;
+                align-items: center;
+            }
 
-    .hero-text {
-      padding: 80px 56px 80px 72px;
-    }
+            .hero-text {
+                padding: 80px 56px 80px 72px;
+            }
 
-    .hero-eyebrow {
-      font-size: 0.75rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--caramel);
-      margin-bottom: 16px;
-    }
+            .hero-eyebrow {
+                font-size: 0.75rem;
+                letter-spacing: 0.2em;
+                text-transform: uppercase;
+                color: var(--caramel);
+                margin-bottom: 16px;
+            }
 
-    .hero-text h1 {
-      font-family: var(--serif);
-      font-size: clamp(2.8rem, 4.5vw, 4.2rem);
-      line-height: 1.1;
-      color: var(--espresso);
-      margin-bottom: 20px;
-    }
+            .hero-text h1 {
+                font-family: var(--serif);
+                font-size: clamp(2.8rem, 4.5vw, 4.2rem);
+                line-height: 1.1;
+                color: var(--espresso);
+                margin-bottom: 20px;
+            }
 
-    .hero-text p {
-      font-size: 1.05rem;
-      color: var(--muted);
-      max-width: 400px;
-      margin-bottom: 36px;
-    }
+            .hero-text p {
+                font-size: 1.05rem;
+                color: var(--muted);
+                max-width: 400px;
+                margin-bottom: 36px;
+            }
 
-    .btn-primary {
-      display: inline-block;
-      background: var(--espresso);
-      color: var(--cream);
-      padding: 14px 32px;
-      border-radius: 4px;
-      text-decoration: none;
-      font-size: 0.9rem;
-      letter-spacing: 0.04em;
-      transition: background 0.2s;
-    }
+            .btn-primary {
+                display: inline-block;
+                background: var(--espresso);
+                color: var(--cream);
+                padding: 14px 32px;
+                border-radius: 4px;
+                text-decoration: none;
+                font-size: 0.9rem;
+                letter-spacing: 0.04em;
+                transition: background 0.2s;
+            }
 
-    .btn-primary:hover { background: var(--roast); }
+            .btn-primary:hover {
+                background: var(--roast);
+            }
 
-    .btn-outline {
-      display: inline-block;
-      border: 1.5px solid var(--espresso);
-      color: var(--espresso);
-      padding: 13px 28px;
-      border-radius: 4px;
-      text-decoration: none;
-      font-size: 0.9rem;
-      letter-spacing: 0.04em;
-      margin-left: 12px;
-      transition: background 0.2s;
-    }
+            .btn-outline {
+                display: inline-block;
+                border: 1.5px solid var(--espresso);
+                color: var(--espresso);
+                padding: 13px 28px;
+                border-radius: 4px;
+                text-decoration: none;
+                font-size: 0.9rem;
+                letter-spacing: 0.04em;
+                margin-left: 12px;
+                transition: background 0.2s;
+            }
 
-    .btn-outline:hover { background: var(--cream); }
+            .btn-outline:hover {
+                background: var(--cream);
+            }
 
-    .hero-image {
-      background: var(--espresso);
-      height: 100%;
-      min-height: 88vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
+            .hero-image {
+                background: var(--espresso);
+                height: 100%;
+                min-height: 88vh;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
 
-    .hero-image svg { width: 300px; }
+            .hero-image svg {
+                width: 300px;
+            }
 
-    /* Strip */
-    .strip {
-      background: var(--espresso);
-      color: var(--cream);
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-    }
+            /* Strip */
+            .strip {
+                background: var(--espresso);
+                color: var(--cream);
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+            }
 
-    .strip-item {
-      padding: 32px 40px;
-      border-right: 1px solid #2E1A0A;
-      display: flex;
-      align-items: flex-start;
-      gap: 16px;
-    }
+            .strip-item {
+                padding: 32px 40px;
+                border-right: 1px solid #2e1a0a;
+                display: flex;
+                align-items: flex-start;
+                gap: 16px;
+            }
 
-    .strip-item:last-child { border-right: none; }
+            .strip-item:last-child {
+                border-right: none;
+            }
 
-    .strip-icon { font-size: 24px; margin-top: 2px; flex-shrink: 0; }
+            .strip-icon {
+                font-size: 24px;
+                margin-top: 2px;
+                flex-shrink: 0;
+            }
 
-    .strip-item h3 {
-      font-family: var(--serif);
-      font-size: 1rem;
-      margin-bottom: 4px;
-    }
+            .strip-item h3 {
+                font-family: var(--serif);
+                font-size: 1rem;
+                margin-bottom: 4px;
+            }
 
-    .strip-item p { font-size: 0.825rem; color: #C9B99A; line-height: 1.5; }
+            .strip-item p {
+                font-size: 0.825rem;
+                color: #c9b99a;
+                line-height: 1.5;
+            }
 
-    /* Menu section */
-    .section { padding: 88px 72px; }
+            /* Menu section */
+            .section {
+                padding: 88px 72px;
+            }
 
-    .section-header { text-align: center; margin-bottom: 56px; }
+            .section-header {
+                text-align: center;
+                margin-bottom: 56px;
+            }
 
-    .section-eyebrow {
-      font-size: 0.7rem;
-      letter-spacing: 0.25em;
-      text-transform: uppercase;
-      color: var(--caramel);
-      margin-bottom: 12px;
-    }
+            .section-eyebrow {
+                font-size: 0.7rem;
+                letter-spacing: 0.25em;
+                text-transform: uppercase;
+                color: var(--caramel);
+                margin-bottom: 12px;
+            }
 
-    .section-header h2 {
-      font-family: var(--serif);
-      font-size: clamp(2rem, 3vw, 2.8rem);
-      color: var(--espresso);
-    }
+            .section-header h2 {
+                font-family: var(--serif);
+                font-size: clamp(2rem, 3vw, 2.8rem);
+                color: var(--espresso);
+            }
 
-    .menu-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-    }
+            .menu-grid {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 24px;
+            }
 
-    .menu-card {
-      background: white;
-      border-radius: 6px;
-      overflow: hidden;
-      border: 1px solid #EDE2CC;
-    }
+            .menu-card {
+                background: white;
+                border-radius: 6px;
+                overflow: hidden;
+                border: 1px solid #ede2cc;
+            }
 
-    .menu-card-img {
-      height: 160px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 56px;
-    }
+            .menu-card-img {
+                height: 160px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 56px;
+            }
 
-    .menu-card-img.warm  { background: #F0D8B0; }
-    .menu-card-img.cool  { background: #D4EAF5; }
-    .menu-card-img.sweet { background: #F5D4E8; }
+            .menu-card-img.warm {
+                background: #f0d8b0;
+            }
+            .menu-card-img.cool {
+                background: #d4eaf5;
+            }
+            .menu-card-img.sweet {
+                background: #f5d4e8;
+            }
 
-    .menu-card-body { padding: 20px 24px; }
+            .menu-card-body {
+                padding: 20px 24px;
+            }
 
-    .menu-card-body h3 {
-      font-family: var(--serif);
-      font-size: 1.15rem;
-      color: var(--espresso);
-      margin-bottom: 6px;
-    }
+            .menu-card-body h3 {
+                font-family: var(--serif);
+                font-size: 1.15rem;
+                color: var(--espresso);
+                margin-bottom: 6px;
+            }
 
-    .menu-card-body p {
-      font-size: 0.85rem;
-      color: var(--muted);
-      margin-bottom: 14px;
-    }
+            .menu-card-body p {
+                font-size: 0.85rem;
+                color: var(--muted);
+                margin-bottom: 14px;
+            }
 
-    .menu-card-footer {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
+            .menu-card-footer {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
 
-    .price {
-      font-family: var(--serif);
-      font-size: 1.1rem;
-      color: var(--espresso);
-      font-weight: 700;
-    }
+            .price {
+                font-family: var(--serif);
+                font-size: 1.1rem;
+                color: var(--espresso);
+                font-weight: 700;
+            }
 
-    .badge {
-      font-size: 0.7rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      padding: 3px 10px;
-      border-radius: 20px;
-    }
+            .badge {
+                font-size: 0.7rem;
+                letter-spacing: 0.08em;
+                text-transform: uppercase;
+                padding: 3px 10px;
+                border-radius: 20px;
+            }
 
-    .badge-new      { background: #D4EDDA; color: #1A5C2A; }
-    .badge-popular  { background: #FFF0CC; color: #7A5000; }
-    .badge-seasonal { background: #F5D4E8; color: #7A1A45; }
+            .badge-new {
+                background: #d4edda;
+                color: #1a5c2a;
+            }
+            .badge-popular {
+                background: #fff0cc;
+                color: #7a5000;
+            }
+            .badge-seasonal {
+                background: #f5d4e8;
+                color: #7a1a45;
+            }
 
-    /* About */
-    .about {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      background: var(--cream);
-    }
+            /* About */
+            .about {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                background: var(--cream);
+            }
 
-    .about-img {
-      background: var(--roast);
-      min-height: 480px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 96px;
-    }
+            .about-img {
+                background: var(--roast);
+                min-height: 480px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 96px;
+            }
 
-    .about-text {
-      padding: 80px 64px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
+            .about-text {
+                padding: 80px 64px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+            }
 
-    .about-text .section-eyebrow { text-align: left; margin-bottom: 16px; }
+            .about-text .section-eyebrow {
+                text-align: left;
+                margin-bottom: 16px;
+            }
 
-    .about-text h2 {
-      font-family: var(--serif);
-      font-size: clamp(1.8rem, 2.5vw, 2.4rem);
-      margin-bottom: 20px;
-      color: var(--espresso);
-      line-height: 1.2;
-    }
+            .about-text h2 {
+                font-family: var(--serif);
+                font-size: clamp(1.8rem, 2.5vw, 2.4rem);
+                margin-bottom: 20px;
+                color: var(--espresso);
+                line-height: 1.2;
+            }
 
-    .about-text p { color: var(--muted); margin-bottom: 16px; font-size: 0.95rem; }
+            .about-text p {
+                color: var(--muted);
+                margin-bottom: 16px;
+                font-size: 0.95rem;
+            }
 
-    /* Hours */
-    .hours-section {
-      padding: 88px 72px;
-      background: white;
-    }
+            /* Hours */
+            .hours-section {
+                padding: 88px 72px;
+                background: white;
+            }
 
-    .hours-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 40px;
-      max-width: 720px;
-      margin: 0 auto;
-    }
+            .hours-grid {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 40px;
+                max-width: 720px;
+                margin: 0 auto;
+            }
 
-    .hours-card {
-      border-left: 3px solid var(--caramel);
-      padding-left: 20px;
-    }
+            .hours-card {
+                border-left: 3px solid var(--caramel);
+                padding-left: 20px;
+            }
 
-    .hours-card h3 {
-      font-family: var(--serif);
-      font-size: 1.1rem;
-      margin-bottom: 12px;
-    }
+            .hours-card h3 {
+                font-family: var(--serif);
+                font-size: 1.1rem;
+                margin-bottom: 12px;
+            }
 
-    .hours-row {
-      display: flex;
-      justify-content: space-between;
-      font-size: 0.875rem;
-      padding: 5px 0;
-      color: var(--muted);
-      border-bottom: 1px solid #F0E8D5;
-    }
+            .hours-row {
+                display: flex;
+                justify-content: space-between;
+                font-size: 0.875rem;
+                padding: 5px 0;
+                color: var(--muted);
+                border-bottom: 1px solid #f0e8d5;
+            }
 
-    .hours-row span:last-child { color: var(--espresso); font-weight: 500; }
+            .hours-row span:last-child {
+                color: var(--espresso);
+                font-weight: 500;
+            }
 
-    /* Footer */
-    footer {
-      background: var(--espresso);
-      color: #C9B99A;
-      text-align: center;
-      padding: 40px 24px;
-      font-size: 0.85rem;
-    }
+            /* Footer */
+            footer {
+                background: var(--espresso);
+                color: #c9b99a;
+                text-align: center;
+                padding: 40px 24px;
+                font-size: 0.85rem;
+            }
 
-    footer strong { color: var(--cream); }
-  </style>
-</head>
-<body>
+            footer strong {
+                color: var(--cream);
+            }
+        </style>
+    </head>
+    <body>
+        <!-- Navigation -->
+        <nav>
+            <div class="logo">Grounds <span>&amp;</span> Co.</div>
+            <ul class="nav-links">
+                <li><a href="#menu">Menu</a></li>
+                <li><a href="#about">Our Story</a></li>
+                <li><a href="#hours">Hours</a></li>
+                <li><a href="#hours" class="nav-cta">Visit Us</a></li>
+            </ul>
+        </nav>
 
-  <!-- Navigation -->
-  <nav>
-    <div class="logo">Grounds <span>&amp;</span> Co.</div>
-    <ul class="nav-links">
-      <li><a href="#menu">Menu</a></li>
-      <li><a href="#about">Our Story</a></li>
-      <li><a href="#hours">Hours</a></li>
-      <li><a href="#hours" class="nav-cta">Visit Us</a></li>
-    </ul>
-  </nav>
+        <!-- Hero -->
+        <section class="hero">
+            <div class="hero-text">
+                <p class="hero-eyebrow">Specialty Coffee · Est. 2018</p>
+                <h1>Coffee worth<br />slowing down for.</h1>
+                <p>
+                    Single-origin beans, brewed with care. Every cup is a
+                    conversation between the farm and your morning.
+                </p>
+                <a href="#menu" class="btn-primary">See Our Menu</a>
+                <a href="#about" class="btn-outline">Our Story</a>
+            </div>
+            <div class="hero-image">
+                <svg viewBox="0 0 260 300" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M100 70 Q95 50 100 30 Q105 10 100 0"
+                        stroke="#C9B99A"
+                        stroke-width="2.5"
+                        fill="none"
+                        stroke-linecap="round"
+                        opacity="0.6"
+                    />
+                    <path
+                        d="M130 75 Q125 55 130 35 Q135 15 130 5"
+                        stroke="#C9B99A"
+                        stroke-width="2.5"
+                        fill="none"
+                        stroke-linecap="round"
+                        opacity="0.5"
+                    />
+                    <path
+                        d="M160 70 Q155 50 160 30 Q165 10 160 0"
+                        stroke="#C9B99A"
+                        stroke-width="2.5"
+                        fill="none"
+                        stroke-linecap="round"
+                        opacity="0.6"
+                    />
+                    <rect
+                        x="60"
+                        y="90"
+                        width="160"
+                        height="140"
+                        rx="12"
+                        fill="#3B1F0A"
+                    />
+                    <ellipse
+                        cx="140"
+                        cy="105"
+                        rx="72"
+                        ry="18"
+                        fill="#C47C2B"
+                        opacity="0.9"
+                    />
+                    <ellipse
+                        cx="140"
+                        cy="105"
+                        rx="50"
+                        ry="12"
+                        fill="#F5EDD8"
+                        opacity="0.18"
+                    />
+                    <ellipse
+                        cx="140"
+                        cy="105"
+                        rx="30"
+                        ry="7"
+                        fill="#F5EDD8"
+                        opacity="0.14"
+                    />
+                    <path
+                        d="M220 115 Q255 115 255 160 Q255 205 220 205"
+                        stroke="#5A2E0F"
+                        stroke-width="14"
+                        fill="none"
+                        stroke-linecap="round"
+                    />
+                    <ellipse
+                        cx="140"
+                        cy="238"
+                        rx="100"
+                        ry="14"
+                        fill="#5A2E0F"
+                    />
+                    <ellipse cx="140" cy="235" rx="95" ry="10" fill="#3B1F0A" />
+                </svg>
+            </div>
+        </section>
 
-  <!-- Hero -->
-  <section class="hero">
-    <div class="hero-text">
-      <p class="hero-eyebrow">Specialty Coffee · Est. 2018</p>
-      <h1>Coffee worth<br>slowing down for.</h1>
-      <p>Single-origin beans, brewed with care. Every cup is a conversation between the farm and your morning.</p>
-      <a href="#menu" class="btn-primary">See Our Menu</a>
-      <a href="#about" class="btn-outline">Our Story</a>
-    </div>
-    <div class="hero-image">
-      <svg viewBox="0 0 260 300" xmlns="http://www.w3.org/2000/svg">
-        <path d="M100 70 Q95 50 100 30 Q105 10 100 0" stroke="#C9B99A" stroke-width="2.5" fill="none" stroke-linecap="round" opacity="0.6"/>
-        <path d="M130 75 Q125 55 130 35 Q135 15 130 5" stroke="#C9B99A" stroke-width="2.5" fill="none" stroke-linecap="round" opacity="0.5"/>
-        <path d="M160 70 Q155 50 160 30 Q165 10 160 0" stroke="#C9B99A" stroke-width="2.5" fill="none" stroke-linecap="round" opacity="0.6"/>
-        <rect x="60" y="90" width="160" height="140" rx="12" fill="#3B1F0A"/>
-        <ellipse cx="140" cy="105" rx="72" ry="18" fill="#C47C2B" opacity="0.9"/>
-        <ellipse cx="140" cy="105" rx="50" ry="12" fill="#F5EDD8" opacity="0.18"/>
-        <ellipse cx="140" cy="105" rx="30" ry="7" fill="#F5EDD8" opacity="0.14"/>
-        <path d="M220 115 Q255 115 255 160 Q255 205 220 205" stroke="#5A2E0F" stroke-width="14" fill="none" stroke-linecap="round"/>
-        <ellipse cx="140" cy="238" rx="100" ry="14" fill="#5A2E0F"/>
-        <ellipse cx="140" cy="235" rx="95" ry="10" fill="#3B1F0A"/>
-      </svg>
-    </div>
-  </section>
-
-  <!-- Strip -->
-  <div class="strip">
-    <div class="strip-item">
-      <span class="strip-icon">☕</span>
-      <div>
-        <h3>Single Origin</h3>
-        <p>Sourced directly from farms in Ethiopia, Colombia, and Guatemala.</p>
-      </div>
-    </div>
-    <div class="strip-item">
-      <span class="strip-icon">🌱</span>
-      <div>
-        <h3>Sustainable</h3>
-        <p>100% compostable packaging and zero-waste roasting practices.</p>
-      </div>
-    </div>
-    <div class="strip-item">
-      <span class="strip-icon">🏆</span>
-      <div>
-        <h3>Award-Winning</h3>
-        <p>Best specialty coffee in the city, three years running.</p>
-      </div>
-    </div>
-  </div>
-
-  <!-- Menu -->
-  <section class="section" id="menu">
-    <div class="section-header">
-      <p class="section-eyebrow">What We Serve</p>
-      <h2>Our Menu</h2>
-    </div>
-    <div class="menu-grid">
-
-      <div class="menu-card">
-        <div class="menu-card-img warm">☕</div>
-        <div class="menu-card-body">
-          <h3>Flat White</h3>
-          <p>Double ristretto with silky microfoam. Our most-loved drink.</p>
-          <div class="menu-card-footer">
-            <span class="price">$4.50</span>
-            <span class="badge badge-popular">Popular</span>
-          </div>
+        <!-- Strip -->
+        <div class="strip">
+            <div class="strip-item">
+                <span class="strip-icon">☕</span>
+                <div>
+                    <h3>Single Origin</h3>
+                    <p>
+                        Sourced directly from farms in Ethiopia, Colombia, and
+                        Guatemala.
+                    </p>
+                </div>
+            </div>
+            <div class="strip-item">
+                <span class="strip-icon">🌱</span>
+                <div>
+                    <h3>Sustainable</h3>
+                    <p>
+                        100% compostable packaging and zero-waste roasting
+                        practices.
+                    </p>
+                </div>
+            </div>
+            <div class="strip-item">
+                <span class="strip-icon">🏆</span>
+                <div>
+                    <h3>Award-Winning</h3>
+                    <p>
+                        Best specialty coffee in the city, three years running.
+                    </p>
+                </div>
+            </div>
         </div>
-      </div>
 
-      <div class="menu-card">
-        <div class="menu-card-img cool">🧊</div>
-        <div class="menu-card-body">
-          <h3>Cold Brew Tonic</h3>
-          <p>18-hour cold brew over tonic water with a hint of citrus peel.</p>
-          <div class="menu-card-footer">
-            <span class="price">$5.50</span>
-            <span class="badge badge-new">New</span>
-          </div>
-        </div>
-      </div>
+        <!-- Menu -->
+        <section class="section" id="menu">
+            <div class="section-header">
+                <p class="section-eyebrow">What We Serve</p>
+                <h2>Our Menu</h2>
+            </div>
+            <div class="menu-grid">
+                <div class="menu-card">
+                    <div class="menu-card-img warm">☕</div>
+                    <div class="menu-card-body">
+                        <h3>Flat White</h3>
+                        <p>
+                            Double ristretto with silky microfoam. Our
+                            most-loved drink.
+                        </p>
+                        <div class="menu-card-footer">
+                            <span class="price">$4.50</span>
+                            <span class="badge badge-popular">Popular</span>
+                        </div>
+                    </div>
+                </div>
 
-      <div class="menu-card">
-        <div class="menu-card-img sweet">🍂</div>
-        <div class="menu-card-body">
-          <h3>Maple Latte</h3>
-          <p>Espresso with steamed oat milk and house-made maple syrup.</p>
-          <div class="menu-card-footer">
-            <span class="price">$5.75</span>
-            <span class="badge badge-seasonal">Seasonal</span>
-          </div>
-        </div>
-      </div>
+                <div class="menu-card">
+                    <div class="menu-card-img cool">🧊</div>
+                    <div class="menu-card-body">
+                        <h3>Cold Brew Tonic</h3>
+                        <p>
+                            18-hour cold brew over tonic water with a hint of
+                            citrus peel.
+                        </p>
+                        <div class="menu-card-footer">
+                            <span class="price">$5.50</span>
+                            <span class="badge badge-new">New</span>
+                        </div>
+                    </div>
+                </div>
 
-      <div class="menu-card">
-        <div class="menu-card-img warm">🫖</div>
-        <div class="menu-card-body">
-          <h3>Pour Over</h3>
-          <p>Single-origin Ethiopian. Jasmine, peach, and a clean bright finish.</p>
-          <div class="menu-card-footer">
-            <span class="price">$5.00</span>
-          </div>
-        </div>
-      </div>
+                <div class="menu-card">
+                    <div class="menu-card-img sweet">🍂</div>
+                    <div class="menu-card-body">
+                        <h3>Maple Latte</h3>
+                        <p>
+                            Espresso with steamed oat milk and house-made maple
+                            syrup.
+                        </p>
+                        <div class="menu-card-footer">
+                            <span class="price">$5.75</span>
+                            <span class="badge badge-seasonal">Seasonal</span>
+                        </div>
+                    </div>
+                </div>
 
-      <div class="menu-card">
-        <div class="menu-card-img sweet">🥐</div>
-        <div class="menu-card-body">
-          <h3>Almond Croissant</h3>
-          <p>Twice-baked with frangipane cream. Baked fresh every morning.</p>
-          <div class="menu-card-footer">
-            <span class="price">$4.25</span>
-            <span class="badge badge-popular">Popular</span>
-          </div>
-        </div>
-      </div>
+                <div class="menu-card">
+                    <div class="menu-card-img warm">🫖</div>
+                    <div class="menu-card-body">
+                        <h3>Pour Over</h3>
+                        <p>
+                            Single-origin Ethiopian. Jasmine, peach, and a clean
+                            bright finish.
+                        </p>
+                        <div class="menu-card-footer">
+                            <span class="price">$5.00</span>
+                        </div>
+                    </div>
+                </div>
 
-      <div class="menu-card">
-        <div class="menu-card-img cool">🍵</div>
-        <div class="menu-card-body">
-          <h3>Matcha Latte</h3>
-          <p>Ceremonial-grade matcha with oat milk. Earthy and smooth.</p>
-          <div class="menu-card-footer">
-            <span class="price">$5.25</span>
-          </div>
-        </div>
-      </div>
+                <div class="menu-card">
+                    <div class="menu-card-img sweet">🥐</div>
+                    <div class="menu-card-body">
+                        <h3>Almond Croissant</h3>
+                        <p>
+                            Twice-baked with frangipane cream. Baked fresh every
+                            morning.
+                        </p>
+                        <div class="menu-card-footer">
+                            <span class="price">$4.25</span>
+                            <span class="badge badge-popular">Popular</span>
+                        </div>
+                    </div>
+                </div>
 
-    </div>
-  </section>
+                <div class="menu-card">
+                    <div class="menu-card-img cool">🍵</div>
+                    <div class="menu-card-body">
+                        <h3>Matcha Latte</h3>
+                        <p>
+                            Ceremonial-grade matcha with oat milk. Earthy and
+                            smooth.
+                        </p>
+                        <div class="menu-card-footer">
+                            <span class="price">$5.25</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-  <!-- About -->
-  <section class="about" id="about">
-    <div class="about-img">🫘</div>
-    <div class="about-text">
-      <p class="section-eyebrow">Our Story</p>
-      <h2>Started with a bag of beans and a big idea.</h2>
-      <p>Grounds &amp; Co. opened in 2018 in a 400 sq ft space with one espresso machine, two bar stools, and a firm belief that good coffee could anchor a neighborhood.</p>
-      <p>Today we roast our own beans, train baristas from around the city, and host weekly cuppings open to anyone curious enough to show up.</p>
-      <p>We're not a chain. We're your corner coffee shop — just doing it really, really well.</p>
-    </div>
-  </section>
+        <!-- About -->
+        <section class="about" id="about">
+            <div class="about-img">🫘</div>
+            <div class="about-text">
+                <p class="section-eyebrow">Our Story</p>
+                <h2>Started with a bag of beans and a big idea.</h2>
+                <p>
+                    Grounds &amp; Co. opened in 2018 in a 400 sq ft space with
+                    one espresso machine, two bar stools, and a firm belief that
+                    good coffee could anchor a neighborhood.
+                </p>
+                <p>
+                    Today we roast our own beans, train baristas from around the
+                    city, and host weekly cuppings open to anyone curious enough
+                    to show up.
+                </p>
+                <p>
+                    We're not a chain. We're your corner coffee shop — just
+                    doing it really, really well.
+                </p>
+            </div>
+        </section>
 
-  <!-- Hours -->
-  <section class="hours-section" id="hours">
-    <div class="section-header">
-      <p class="section-eyebrow">Find Us</p>
-      <h2 style="font-family: 'Playfair Display', serif; font-size: 2.4rem; color: #1C1009;">Hours &amp; Location</h2>
-    </div>
-    <div class="hours-grid">
-      <div class="hours-card">
-        <h3>Weekdays</h3>
-        <div class="hours-row"><span>Monday</span><span>7:00 am – 6:00 pm</span></div>
-        <div class="hours-row"><span>Tuesday</span><span>7:00 am – 6:00 pm</span></div>
-        <div class="hours-row"><span>Wednesday</span><span>7:00 am – 6:00 pm</span></div>
-        <div class="hours-row"><span>Thursday</span><span>7:00 am – 6:00 pm</span></div>
-        <div class="hours-row"><span>Friday</span><span>7:00 am – 7:00 pm</span></div>
-      </div>
-      <div class="hours-card">
-        <h3>Weekends &amp; Address</h3>
-        <div class="hours-row"><span>Saturday</span><span>8:00 am – 7:00 pm</span></div>
-        <div class="hours-row"><span>Sunday</span><span>8:00 am – 5:00 pm</span></div>
-        <p style="font-size: 0.85rem; color: #7A5C3A; margin-top: 20px; line-height: 1.6;">
-          142 Elm Street<br>
-          Brooklyn, NY 11201<br>
-          <a href="tel:+17185550194" style="color: #C47C2B; text-decoration: none;">(718) 555-0194</a>
-        </p>
-      </div>
-    </div>
-  </section>
+        <!-- Hours -->
+        <section class="hours-section" id="hours">
+            <div class="section-header">
+                <p class="section-eyebrow">Find Us</p>
+                <h2
+                    style="
+                        font-family: &quot;Playfair Display&quot;, serif;
+                        font-size: 2.4rem;
+                        color: #1c1009;
+                    "
+                >
+                    Hours &amp; Location
+                </h2>
+            </div>
+            <div class="hours-grid">
+                <div class="hours-card">
+                    <h3>Weekdays</h3>
+                    <div class="hours-row">
+                        <span>Monday</span><span>7:00 am – 6:00 pm</span>
+                    </div>
+                    <div class="hours-row">
+                        <span>Tuesday</span><span>7:00 am – 6:00 pm</span>
+                    </div>
+                    <div class="hours-row">
+                        <span>Wednesday</span><span>7:00 am – 6:00 pm</span>
+                    </div>
+                    <div class="hours-row">
+                        <span>Thursday</span><span>7:00 am – 6:00 pm</span>
+                    </div>
+                    <div class="hours-row">
+                        <span>Friday</span><span>7:00 am – 7:00 pm</span>
+                    </div>
+                </div>
+                <div class="hours-card">
+                    <h3>Weekends &amp; Address</h3>
+                    <div class="hours-row">
+                        <span>Saturday</span><span>8:00 am – 7:00 pm</span>
+                    </div>
+                    <div class="hours-row">
+                        <span>Sunday</span><span>8:00 am – 5:00 pm</span>
+                    </div>
+                    <p
+                        style="
+                            font-size: 0.85rem;
+                            color: #7a5c3a;
+                            margin-top: 20px;
+                            line-height: 1.6;
+                        "
+                    >
+                        142 Elm Street<br />
+                        Brooklyn, NY 11201<br />
+                        <a
+                            href="tel:+17185550194"
+                            style="color: #c47c2b; text-decoration: none"
+                            >(718) 555-0194</a
+                        >
+                    </p>
+                </div>
+            </div>
+        </section>
 
-  <!-- Footer -->
-  <footer>
-    <p><strong>Grounds &amp; Co.</strong> &nbsp;·&nbsp; 142 Elm Street, Brooklyn, NY &nbsp;·&nbsp; © 2026</p>
-  </footer>
-
-</body>
+        <!-- Footer -->
+        <footer>
+            <p>
+                <strong>Grounds &amp; Co.</strong> &nbsp;·&nbsp; 142 Elm Street,
+                Brooklyn, NY &nbsp;·&nbsp; © 2026
+            </p>
+        </footer>
+    </body>
 </html>
